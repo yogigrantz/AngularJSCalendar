@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title>Calendar And Speedometer</title>
-
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
     <style type="text/css">
         .down10 {
@@ -87,6 +85,12 @@
             margin-top: 50px;
             font-size: 40px;
             font-weight: bold;
+            text-align: center;
+        }
+
+        .calDay {
+            float: left;
+            width: 14%;
             text-align: center;
         }
 
@@ -331,9 +335,7 @@
     <div class="container" ng-controller="calendar">
         <div class="row down10">
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-
                 <input class="form-control" type="text" ng-model="textboxDate" ng-click="triggerCalendar(true)" placeholder="Click me..." />
-
                 <div class="col-xs-12 calendarBox text-center" ng-show="showCalendar">
                     <div class="row  monthName textcenter">
                         <div class="col-xs-2 clickable" ng-click="changeMonth(prevMonthYear, prevMonth)">< </div>
@@ -341,25 +343,25 @@
                         <div class="col-xs-2 text-right clickable" ng-click="changeMonth(nextMonthYear,nextMonth)">> </div>
                     </div>
                     <div class="row days">
-                        <div class="col-xs-1 text-center" ng-repeat="day in days">{{day}}</div>
+                        <div class="calDay text-center" ng-repeat="day in days">{{day}}</div>
                     </div>
                     <div class="row down10">
-                        <div class="col-xs-1 clickable text-right" ng-repeat="dte in month[monthPattern].wk1 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
+                        <div class="calDay" ng-repeat="dte in month[monthPattern].wk1 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
                     </div>
                     <div class="row down10">
-                        <div class="col-xs-1 clickable text-right" ng-repeat="dte in month[monthPattern].wk2 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
+                        <div class="calDay" ng-repeat="dte in month[monthPattern].wk2 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
                     </div>
                     <div class="row down10">
-                        <div class="col-xs-1 clickable text-right" ng-repeat="dte in month[monthPattern].wk3 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
+                        <div class="calDay" ng-repeat="dte in month[monthPattern].wk3 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
                     </div>
                     <div class="row down10">
-                        <div class="col-xs-1 clickable text-right" ng-repeat="dte in month[monthPattern].wk4 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
+                        <div class="calDay" ng-repeat="dte in month[monthPattern].wk4 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
                     </div>
                     <div class="row down10">
-                        <div class="col-xs-1 clickable text-right" ng-repeat="dte in month[monthPattern].wk5 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
+                        <div class="calDay" ng-repeat="dte in month[monthPattern].wk5 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
                     </div>
                     <div class="row down10">
-                        <div class="col-xs-1 clickable text-right" ng-repeat="dte in month[monthPattern].wk6 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
+                        <div class="calDay" ng-repeat="dte in month[monthPattern].wk6 track by $index"><span ng-show="dte > 0 && dte <= monthEndDate" ng-click="pickDate(curYear,curMonth + 1,dte)">{{dte}}</span></div>
                     </div>
                 </div>
                 <div class="col-xs-12 calendarBox text-center" ng-show="showCalendar">
@@ -376,7 +378,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row down30">
             <div class="week">
                 <div class="monthStrip">
@@ -407,7 +408,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-row30">
             <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                 <div id="canvas"></div>
